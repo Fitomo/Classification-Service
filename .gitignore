@@ -1,0 +1,4 @@
+venv/
+data_prep/raw_generated_data/
+data_prep/cleaned_generated_data/
+data_prep/calced_data/
