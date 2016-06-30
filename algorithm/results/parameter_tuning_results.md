@@ -1,6 +1,6 @@
-### Parameter Tuning
+# Parameter Tuning
 ## Test 1:
-# Params:
+### Params:
 learning_rate=0.05
 min_samples_split=500
 min_samples_leaf=50
@@ -8,9 +8,9 @@ max_depth=8
 max_features='sqrt'
 subsample=0.8
 random_state=10
-# Testing:
+### Testing:
 n_estimators:range(20,81,10)
-# Grid Scores:
+### Grid Scores:
 [ mean: 144.50046, std: 1.56585, params: {'n_estimators': 20},
   mean: 137.16978, std: 1.26331, params: {'n_estimators': 30},
   mean: 134.14077, std: 1.12795, params: {'n_estimators': 40},
@@ -22,9 +22,9 @@ n_estimators:range(20,81,10)
   mean: 132.00162, std: 0.85715, params: {'n_estimators': 100},
   mean: 132.00080, std: 0.84445, params: {'n_estimators': 110},
   mean: 132.00731, std: 0.84576, params: {'n_estimators': 120} ]
-# Best Params:
+### Best Params:
 {'n_estimators': 110}
-# Best Score:
+### Best Score:
 132.000795686
 
 ## Test 2:
