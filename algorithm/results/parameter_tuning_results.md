@@ -1,13 +1,13 @@
 # Parameter Tuning
 ## Test 1:
 ### Params:
-learning_rate=0.05
-min_samples_split=500
-min_samples_leaf=50
-max_depth=8
-max_features='sqrt'
-subsample=0.8
-random_state=10
+- learning_rate=0.05
+- min_samples_split=500
+- min_samples_leaf=50
+- max_depth=8
+- max_features='sqrt'
+- subsample=0.8
+- random_state=10
 ### Testing:
 n_estimators:range(20,81,10)
 ### Grid Scores:
@@ -29,12 +29,12 @@ n_estimators:range(20,81,10)
 
 ## Test 2:
 ### Params:
-learning_rate=0.05
-n_estimators=110
-min_samples_leaf=50
-max_features='sqrt'
-subsample=0.8
-random_state=10
+- learning_rate=0.05
+- n_estimators=110
+- min_samples_leaf=50
+- max_features='sqrt'
+- subsample=0.8
+- random_state=10
 ### Testing:
 max_depth:range(5,15,2)
 min_samples_split:range(1600,2400,200)
@@ -70,13 +70,13 @@ min_samples_split:range(1600,2400,200)
 
 ## Test 3:
 ### Params:
-learning_rate=0.05
-n_estimators=110
-min_samples_split=2000
-max_depth=7
-max_features='sqrt'
-subsample=0.8
-random_state=10
+- learning_rate=0.05
+- n_estimators=110
+- min_samples_split=2000
+- max_depth=7
+- max_features='sqrt'
+- subsample=0.8
+- random_state=10
 ### Testing:
 min_samples_leaf:range(20,60,10)
 ### Grid Scores:
@@ -92,13 +92,13 @@ min_samples_leaf:range(20,60,10)
 
 ## Test 4:
 ### Params:
-learning_rate=0.05
-n_estimators=110
-min_samples_split=2000
-max_depth=7
-min_samples_leaf=30
-subsample=0.8
-random_state=10
+- learning_rate=0.05
+- n_estimators=110
+- min_samples_split=2000
+- max_depth=7
+- min_samples_leaf=30
+- subsample=0.8
+- random_state=10
 ### Testing:
 max_features:range(1,6,1)
 ### Grid Scores:
@@ -114,22 +114,28 @@ max_features:range(1,6,1)
 
 ## Test 5:
 ### Params:
-learning_rate=0.05
-n_estimators=110
-min_samples_split=2000
-max_depth=7
-min_samples_leaf=30
-max_features=2
-random_state=10
+- learning_rate=0.05
+- n_estimators=110
+- min_samples_split=2000
+- max_depth=7
+- min_samples_leaf=30
+- max_features=2
+- random_state=10
 ### Testing:
 subsample:range(0.6,0.91,0.05)
 ### Grid Scores:
 [ mean: 131.84650, std: 0.89927, params: {'subsample': 0.6},
+
   mean: 131.87023, std: 0.87768, params: {'subsample': 0.65},
+  
   mean: 131.87063, std: 0.89977, params: {'subsample': 0.7},
+  
   mean: 131.86186, std: 0.88008, params: {'subsample': 0.75},
+  
   mean: 131.79676, std: 0.89024, params: {'subsample': 0.8},
+  
   mean: 131.85638, std: 0.87975, params: {'subsample': 0.85},
+  
   mean: 131.86887, std: 0.90642, params: {'subsample': 0.9} ]
 ### Best Params:
 {'subsample': 0.8}
@@ -139,88 +145,88 @@ subsample:range(0.6,0.91,0.05)
 # Learning Rate / N_Estimators Tuning
 ## Test 1:
 ### Params:
-min_samples_split=2000
-max_depth=7
-min_samples_leaf=30
-max_features=2
-subsample=0.8
-random_state=10
+- min_samples_split=2000
+- max_depth=7
+- min_samples_leaf=30
+- max_features=2
+- subsample=0.8
+- random_state=10
 ### Testing:
-learning_rate=0.05
-n_estimators=110
+- learning_rate=0.05
+- n_estimators=110
 ### MSE Stats:
-Mean: 131.9024
-Std: 1.37687
-Min: 134.2828
-Max: 130.1444
+- Mean: 131.9024
+- Std: 1.37687
+- Min: 134.2828
+- Max: 130.1444
 ### RMSE Stats:
-Mean: 11.4849
-Std: 1.1734
-Min: 11.5880
-Max: 11.4081
+- Mean: 11.4849
+- Std: 1.1734
+- Min: 11.5880
+- Max: 11.4081
 
 ## Test 2:
 ### Params:
-min_samples_split=2000
-max_depth=7
-min_samples_leaf=30
-max_features=2
-subsample=0.8
-random_state=10
+- min_samples_split=2000
+- max_depth=7
+- min_samples_leaf=30
+- max_features=2
+- subsample=0.8
+- random_state=10
 ### Testing:
-learning_rate=0.01
-n_estimators=550
+- learning_rate=0.01
+- n_estimators=550
 ### MSE Stats:
-Mean: 131.7543
-Std: 1.37157
-Min: 134.1603
-Max: 130.0827
+- Mean: 131.7543
+- Std: 1.37157
+- Min: 134.1603
+- Max: 130.0827
 ### RMSE Stats:
-Mean: 11.4784
-Std: 1.1711
-Min: 11.5828
-Max: 11.4054
+- Mean: 11.4784
+- Std: 1.1711
+- Min: 11.5828
+- Max: 11.4054
 
 ## Test 3:
 ### Params:
-min_samples_split=2000
-max_depth=7
-min_samples_leaf=30
-max_features=2
-subsample=0.8
-random_state=10
+- min_samples_split=2000
+- max_depth=7
+- min_samples_leaf=30
+- max_features=2
+- subsample=0.8
+- random_state=10
 ### Testing:
-learning_rate=0.005
-n_estimators=1100
+- learning_rate=0.005
+- n_estimators=1100
 ### MSE Stats:
-Mean: 131.7341
-Std: 1.3716
-Min: 134.1210
-Max: 130.0134
+- Mean: 131.7341
+- Std: 1.3716
+- Min: 134.1210
+- Max: 130.0134
 ### RMSE Stats:
-Mean: 11.4775
-Std: 1.1711
-Min: 11.5811
-Max: 11.4023
+- Mean: 11.4775
+- Std: 1.1711
+- Min: 11.5811
+- Max: 11.4023
 
 ## Test 4:
 ### Params:
-min_samples_split=2000
-max_depth=7
-min_samples_leaf=30
-max_features=2
-subsample=0.8
-random_state=10
+- min_samples_split=2000
+- max_depth=7
+- min_samples_leaf=30
+- max_features=2
+- subsample=0.8
+- random_state=10
 ### Testing:
-learning_rate=0.005
-n_estimators=1500
+- learning_rate=0.005
+- n_estimators=1500
 ### MSE Stats:
-Mean: 131.7029
-Std: 1.341887
-Min: 134.0236
-Max: 130.0048
+- Mean: 131.7029
+- Std: 1.341887
+- Min: 134.0236
+- Max: 130.0048
 ### RMSE Stats:
-Mean: 11.4762
-Std: 1.1584
-Min: 11.5769
-Max: 11.4020
+- Mean: 11.4762
+- Std: 1.1584
+- Min: 11.5769
+- Max: 11.4020
