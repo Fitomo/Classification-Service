@@ -8,11 +8,13 @@
 - max_features='sqrt'
 - subsample=0.8
 - random_state=10
+
 ### Testing:
 n_estimators:range(20,81,10)
+
 ### Grid Scores:
 [ mean: 144.50046, std: 1.56585, params: {'n_estimators': 20},
-  mean: 137.16978, std: 1.26331, params: {'n_estimators': 30},
+mean: 137.16978, std: 1.26331, params: {'n_estimators': 30},
   mean: 134.14077, std: 1.12795, params: {'n_estimators': 40},
   mean: 132.88186, std: 1.03599, params: {'n_estimators': 50},
   mean: 132.36311, std: 0.97073, params: {'n_estimators': 60},
