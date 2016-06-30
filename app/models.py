@@ -1,21 +1,16 @@
-from app import db
+from flask_sqlalchemy import SQLAlchemy
 
-def hello():
-    print 'hello'
+db = SQLAlchemy()
 
 class Activity(db.Model):
     __tablename__ = 'activities'
 
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.Date)
+    date = db.Column(db.String)
     steps = db.Column(db.Float)
     user_id = db.Column(db.String)
     total_sleep = db.Column(db.Float)
     resting_hr = db.Column(db.Float)
-    outlier_tag = db.Column(db.Integer)
-    step_score = db.Column(db.Float)
-    sleep_score = db.Column(db.Float)
-    hr_score = db.Column(db.Float)
     step_week_slope = db.Column(db.Float)
     sleep_week_slope = db.Column(db.Float)
     hr_week_slope = db.Column(db.Float)
@@ -23,8 +18,7 @@ class Activity(db.Model):
     health_score_in_week = db.Column(db.Float)
 
     def __init__(self, date, steps, user_id,
-                total_sleep, resting_hr, outlier_tag,
-                step_score, sleep_score, hr_score,
+                total_sleep, resting_hr,
                 step_week_slope, sleep_week_slope,
                 hr_week_slope, curr_health_score,
                 health_score_in_week):
@@ -33,10 +27,6 @@ class Activity(db.Model):
                     self.user_id = user_id
                     self.total_sleep = total_sleep
                     self.resting_hr = resting_hr
-                    self.outlier_tag = outlier_tag
-                    self.step_score = step_score
-                    self.sleep_score = sleep_score
-                    self.hr_score = hr_score
                     self.step_week_slope = step_week_slope
                     self.sleep_week_slope = sleep_week_slope
                     self.hr_week_slope = hr_week_slope

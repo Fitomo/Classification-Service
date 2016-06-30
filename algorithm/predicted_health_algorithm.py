@@ -109,7 +109,8 @@ params_tuned = {
     'random_state': 10,
     'loss': 'ls'
 }
-gbm_fit(params_tuned, 5)
+#################### UNCOMMENT LINE BELOW TO RUN ALGORITHM ####################
+# gbm_fit(params_tuned, 5)
 
 ###############################################################################
 # tune parameters

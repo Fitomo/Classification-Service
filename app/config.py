@@ -6,6 +6,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'fitomo'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/prediction'
 
 class ProductionConfig(Config):
     DEBUG = False
