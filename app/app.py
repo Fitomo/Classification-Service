@@ -20,10 +20,7 @@ def get_prediction():
     results = {}
     if request.method=='GET':
         try:
-            prediction = process_and_insert_data(request.args)
-            data = {
-                'health_score_in_week': prediction
-            }
+            data = process_and_insert_data(request.args)
             js = json.dumps(data)
             resp = Response(js, status=200, mimetype='application/json')
             return resp
@@ -37,4 +34,4 @@ def get_prediction():
         return 'Please send a get request to this api'
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000)
+    app.run(host='0.0.0.0', port=5000)

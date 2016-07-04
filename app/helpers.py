@@ -8,36 +8,44 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 def process_and_insert_data(data):
     # turn user_info into list of format:
     # ['steps', 'total_sleep', 'resting_hr', 'step_week_slope', 'sleep_week_slope', 'hr_week_slope', 'curr_health_score']
-    curr_health_score = calc_health_score(to_float(data.get('steps')), to_float(data.get('total_sleep')), to_float(data.get('resting_hr')))
-    ml_fields = [ 'steps',
-                  'total_sleep',
-                  'resting_hr',
-                  'step_week_slope',
-                  'sleep_week_slope',
-                  'hr_week_slope' ]
-    ml_input = []
-    for field in ml_fields:
-        if data.get(field)!=0:
-            ml_input.append(to_float(data.get(field)))
-        else:
-            return 'Data is missing'
-    ml_input.append(curr_health_score)
-    prediction = make_prediction(ml_input)
-    model_data = Activity(
-        date=to_str(data.get('date')),
-        steps=to_float(data.get('steps')),
-        user_id=to_str(data.get('user_id')),
-        total_sleep=to_float(data.get('total_sleep')),
-        resting_hr=to_float(data.get('resting_hr')),
-        step_week_slope=to_float(data.get('step_week_slope')),
-        sleep_week_slope=to_float(data.get('sleep_week_slope')),
-        hr_week_slope=to_float(data.get('hr_week_slope')),
-        curr_health_score=to_float(curr_health_score),
-        health_score_in_week=prediction
-    )
-    db.session.add(model_data)
-    db.session.commit()
-    return prediction
+    print data
+    try:
+        curr_health_score = calc_health_score(to_float(data.get('steps')), to_float(data.get('total_sleep')), to_float(data.get('resting_hr')))
+        ml_fields = [ 'steps',
+                      'total_sleep',
+                      'resting_hr',
+                      'step_week_slope',
+                      'sleep_week_slope',
+                      'hr_week_slope' ]
+        ml_input = []
+        for field in ml_fields:
+            if data.get(field)!=0:
+                ml_input.append(to_float(data.get(field)))
+            else:
+                return 'Data is missing'
+        ml_input.append(curr_health_score)
+        prediction = make_prediction(ml_input)
+        model_data = Activity(
+            date=to_str(data.get('date')),
+            steps=to_float(data.get('steps')),
+            user_id=to_str(data.get('user_id')),
+            total_sleep=to_float(data.get('total_sleep')),
+            resting_hr=to_float(data.get('resting_hr')),
+            step_week_slope=to_float(data.get('step_week_slope')),
+            sleep_week_slope=to_float(data.get('sleep_week_slope')),
+            hr_week_slope=to_float(data.get('hr_week_slope')),
+            curr_health_score=to_float(curr_health_score),
+            health_score_in_week=prediction
+        )
+        db.session.add(model_data)
+        db.session.commit()
+        data = {
+            'prediction': prediction,
+            'curr_health_score': curr_health_score
+        }
+        return data
+    except:
+        return
 
 def calc_health_score(steps, sleep, hr):
     # data taken from training set
