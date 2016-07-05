@@ -8,7 +8,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 def process_and_insert_data(data):
     # turn user_info into list of format:
     # ['steps', 'total_sleep', 'resting_hr', 'step_week_slope', 'sleep_week_slope', 'hr_week_slope', 'curr_health_score']
-    print data
     try:
         curr_health_score = calc_health_score(to_float(data.get('steps')), to_float(data.get('total_sleep')), to_float(data.get('resting_hr')))
         ml_fields = [ 'steps',
