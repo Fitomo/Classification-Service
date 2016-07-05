@@ -37,27 +37,35 @@
   $ cd Prediction-Service
   ```
 
-#### 2. Install Dependencies
-  From within the root directory run the following command to install all dependencies:
+#### 2. Setup Environment
+
+  1. Setup a virtual environment for the application:
 
   ```sh
-  $ pip install -r requirements.txt
+  $ pyvenv-3.5 env
+  $ source env/bin/activate
+  $ deactivate
   ```
 
-#### 3. Setup Environment Variables
-
-  1. Run the following command in your terminal to refresh your bash profile:
+  2. Run the following command in your terminal to refresh your bash profile:
 
   ```sh
   $ echo "source `which activate.sh`" >> ~/.bashrc
   $ source ~/.bashrc
   ```
 
-  2. Refresh your bash profile by leaving then entering the directory:
+  3. Refresh your bash profile by leaving then entering the directory:
 
   ```sh
   $ cd ..
   $ cd Prediction-Service
+  ```
+
+#### 3. Install Dependencies
+  From within the root directory run the following command to install all dependencies:
+
+  ```sh
+  $ pip install -r requirements.txt
   ```
 
 #### 4. Run the application
