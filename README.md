@@ -17,6 +17,8 @@
 
   This service takes requests at '/api/getPrediction'; data to include is a dictionary with the following keys:
   ```sh
+    date
+    user_id
     steps
     total_sleep
     resting_hr
@@ -39,26 +41,17 @@
 
 #### 2. Setup Environment
 
-  1. Setup a virtual environment for the application:
+  1. Install virtualenv:
 
   ```sh
-  $ pyvenv-3.5 env
-  $ source env/bin/activate
-  $ deactivate
+  $ pip install virtualenv
   ```
 
-  2. Run the following command in your terminal to refresh your bash profile:
+  2. Setup a virtual environment for the application:
 
   ```sh
-  $ echo "source `which activate.sh`" >> ~/.bashrc
-  $ source ~/.bashrc
-  ```
-
-  3. Refresh your bash profile by leaving then entering the directory:
-
-  ```sh
-  $ cd ..
-  $ cd Prediction-Service
+  $ virtualenv venv
+  $ source venv/bin/activate
   ```
 
 #### 3. Install Dependencies
@@ -70,7 +63,9 @@
 
 #### 4. Run the application
 
-  Run the following command in your terminal to run the app:
+  1. Start your local PostgreSQL database instance
+
+  2. Run the following command in your terminal to run the app:
 
   ```sh
   $ python app/app.py
