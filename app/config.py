@@ -6,12 +6,12 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'fitomo'
-    # SQLALCHEMY_DATABASE_URI = 'postgresql://' + os.environ['DB_USER'] + ':' + os.environ['DB_PASSWORD'] + '@predictionServiceDB:5432/predictionServiceDB'
-    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/prediction'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('LOCAL_DB_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class ProductionConfig(Config):
     DEBUG = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DEPLOY_DB_URI')
 
 class StagingConfig(Config):
     DEVELOPMENT = True
