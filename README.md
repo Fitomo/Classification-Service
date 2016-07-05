@@ -5,11 +5,12 @@
 ## Table of Contents
 1. [Usage](#Usage)
 2. [Getting started](#Getting-Started)
-  1. [Clone the latest version](#Installing-Dependencies)
-  2. [Install dependencies](#Installing-Dependencies)
-  3. [Run the application](#Run-Application)
+  1. [Clone the latest version](#Clone-Latest)
+  2. [Setup Environment](#Setup-Environment)
+  3. [Install dependencies](#Installing-Dependencies)
+  4. [Run the application](#Run-Application)
 3. [Tech Stack](#Tech-Stack)
-4. [Team](#Team)
+4. [Directory Layout](#Directory-Layout)
 5. [Contributing](#Contributing)
 6. [License](#License)
 
