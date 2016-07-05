@@ -1,6 +1,6 @@
 # Fitomo Prediction Service
 
-  Fitomo Prediction Service is a tool to forecast users' future "health scores", based on their current steps, sleep and heart rate data as well as previous trends.
+  Fitomo Prediction Service is a tool to forecast users' future health, based on their current steps, sleep and heart rate data as well as previous trends.
 
 ## Table of Contents
 1. [Usage](#Usage)
