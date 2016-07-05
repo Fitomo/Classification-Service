@@ -24,7 +24,7 @@
     sleep_week_slope
     hr_week_slope
   ```
-  The service will then output the predicted health score (calculated using a gradient boosting regression).
+  The service will then output the current health score and predicted health score (calculated using a gradient boosting regression). Incorrect requests will not return health scores.
 
 ## Getting started
 
