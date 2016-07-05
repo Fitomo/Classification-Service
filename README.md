@@ -16,12 +16,12 @@
 ## Usage
 
   This service takes requests at '/api/getPrediction'; data to include is a dictionary with the following keys:
-    - steps
-    - total_sleep
-    - resting_hr
-    - step_week_slope
-    - sleep_week_slope
-    - hr_week_slope
+    1. steps
+    2. total_sleep
+    3. resting_hr
+    4. step_week_slope
+    5. sleep_week_slope
+    6. hr_week_slope
   The service will then output the predicted health score (calculated using a gradient boosting regression).
 
 ## Getting started
