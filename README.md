@@ -7,7 +7,7 @@
 2. [Getting started](#Getting-Started)
   1. [Clone the latest version](#Clone-Latest)
   2. [Setup Environment](#Setup-Environment)
-  3. [Install dependencies](#Installing-Dependencies)
+  3. [Install dependencies](#Install-Dependencies)
   4. [Run the application](#Run-Application)
 3. [Tech Stack](#Tech-Stack)
 4. [Directory Layout](#Directory-Layout)
