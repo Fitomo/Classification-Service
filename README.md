@@ -16,7 +16,7 @@
 
 ## Usage
 
-  This service takes requests at '/api/getPrediction'; data to include is a dictionary with the following keys:
+  This service takes get requests at '/api/getPrediction'; data to include is a dictionary with the following keys:
   ```sh
     date
     user_id
