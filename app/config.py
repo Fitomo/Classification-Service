@@ -6,11 +6,12 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'fitomo'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DB_URI')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('LOCAL_DB_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class ProductionConfig(Config):
     DEBUG = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DEPLOY_DB_URI')
 
 class StagingConfig(Config):
     DEVELOPMENT = True
