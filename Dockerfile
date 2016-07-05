@@ -33,6 +33,11 @@ ENV DOCKERIZE_VERSION v0.2.0
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-# CMD python app.py
+CMD dockerize -wait http://predictionServiceDB:5432 -timeout 360s
+CMD echo "source `which activate.sh`" >> ~/.bashrc
+CMD source ~/.bashrc
+CMD cd..
+CMD cd app
+CMD python app.py
 
-CMD ["dockerize", "-wait", "http://predictionServiceDB:5432", "-timeout", "360s", "python", "app.py" ]
+# CMD ["dockerize", "-wait", "http://predictionServiceDB:5432", "-timeout", "360s", "python", "app.py" ]
