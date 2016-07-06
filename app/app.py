@@ -5,7 +5,9 @@ from models import db
 import config
 
 app = Flask(__name__)
+# Set config
 app.config.from_object(os.environ['APP_SETTINGS'])
+# Initialize app
 db.init_app(app)
 
 from helpers import *
@@ -20,7 +22,9 @@ def get_prediction():
     results = {}
     if request.method=='GET':
         try:
+            # Put data through algorithm and insert into database
             data = process_and_insert_data(request.args)
+            # Turn data into json format
             js = json.dumps(data)
             resp = Response(js, status=200, mimetype='application/json')
             return resp

@@ -13,7 +13,6 @@ itsdangerous==0.24
 Jinja2==2.8
 Mako==1.0.4
 MarkupSafe==0.23
-matplotlib==1.5.1
 numpy==1.11.1
 pandas==0.18.1
 pbr==1.10.0
@@ -36,7 +35,6 @@ SQLAlchemy==1.0.13
 sqlalchemy-migrate==0.7.2
 sqlparse==0.1.19
 Tempita==0.5.2
-vboxapi==1.0
 virtualenv==15.0.2
 Werkzeug==0.11.10
 yarg==0.1.9

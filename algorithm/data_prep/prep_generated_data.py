@@ -2,6 +2,7 @@ import sys
 import json
 import csv
 
+# Encodes files in utf-8
 def byteify(input):
     if isinstance(input, dict):
         return {byteify(key): byteify(value)
@@ -21,6 +22,8 @@ def json_to_csv(json_file, output_file):
         dict_writer.writerows(json_file)
 
 def prep_data():
+    # When calling the function from terminal, call:
+    # python prep_generated_data.py output_file (all input files)
     output_file = sys.argv[1]
     all_training_data_json = []
 
@@ -30,6 +33,7 @@ def prep_data():
             parsed_json_file1 = json.loads(content, object_hook=byteify)
             for user in parsed_json_file1:
                 for activities in parsed_json_file1[user]['activitiesLog']:
+                    # Parse out necessary information and put it into a standard format
                     temp = {}
                     temp['user_id'] = user
                     temp['date'] = activities['date']
