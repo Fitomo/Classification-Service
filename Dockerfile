@@ -39,5 +39,3 @@ CMD source ~/.bashrc
 CMD cd..
 CMD cd app
 CMD python app.py
-
-# CMD ["dockerize", "-wait", "http://predictionServiceDB:5432", "-timeout", "360s", "python", "app.py" ]

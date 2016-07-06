@@ -6,9 +6,10 @@ from sklearn.externals import joblib
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 def process_and_insert_data(data):
-    # turn user_info into list of format:
+    # Turn user info into list of format:
     # ['steps', 'total_sleep', 'resting_hr', 'step_week_slope', 'sleep_week_slope', 'hr_week_slope', 'curr_health_score']
     try:
+        # Calculate current health score
         curr_health_score = calc_health_score(to_float(data.get('steps')), to_float(data.get('total_sleep')), to_float(data.get('resting_hr')))
         ml_fields = [ 'steps',
                       'total_sleep',
@@ -17,6 +18,7 @@ def process_and_insert_data(data):
                       'sleep_week_slope',
                       'hr_week_slope' ]
         ml_input = []
+        # Put 'GET' request data into list for algorithm
         for field in ml_fields:
             if data.get(field)!=0:
                 ml_input.append(to_float(data.get(field)))
@@ -24,6 +26,8 @@ def process_and_insert_data(data):
                 return 'Data is missing'
         ml_input.append(curr_health_score)
         prediction = make_prediction(ml_input)
+
+        # Insert data into database
         model_data = Activity(
             date=to_str(data.get('date')),
             steps=to_float(data.get('steps')),
@@ -47,7 +51,7 @@ def process_and_insert_data(data):
         return
 
 def calc_health_score(steps, sleep, hr):
-    # data taken from training set
+    # Data taken from training set
     steps_97th = 14929.5811883
     steps_3rd = 322.091611053
     steps_range = steps_97th - steps_3rd
@@ -68,6 +72,7 @@ def calc_health_score(steps, sleep, hr):
 
 
 def make_prediction(input):
+    # Load machine learning algorithm
     ml_alg = joblib.load(os.path.join(basedir, 'health_prediction.pkl'))
     output = ml_alg.predict(input)
     return output[0]
