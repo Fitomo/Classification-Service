@@ -41,4 +41,4 @@ CMD cd app
 CMD python app.py
 CMD python manage.py db init
 CMD python manage.py db migrate
-CMD python manage.py db update
+CMD python manage.py db upgrade
