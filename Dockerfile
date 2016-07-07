@@ -17,6 +17,7 @@ COPY /app/helpers.py /usr/src/app
 COPY /app/manage.py /usr/src/app
 COPY /app/models.py /usr/src/app
 COPY /app/health_prediction.pkl /usr/src/app
+COPY /app/migrations /usr/src/app
 COPY requirements.txt /usr/src/app
 COPY Dockerfile /usr/src/app
 
@@ -36,9 +37,9 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 CMD dockerize -wait http://predictionServiceDB:5432 -timeout 360s
 CMD echo "source `which activate.sh`" >> ~/.bashrc
 CMD source ~/.bashrc
-CMD cd..
+CMD cd ..
 CMD cd app
 CMD python app.py
-CMD python manage.py db init
-CMD python manage.py db migrate
-CMD python manage.py db upgrade
+# CMD python manage.py db init
+# CMD python manage.py db migrate
+# CMD python manage.py db upgrade
