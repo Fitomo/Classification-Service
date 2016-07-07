@@ -10,6 +10,10 @@ from app.app import app, db
 from app.models import Activity
 os.environ['APP_SETTINGS'] = 'TestingConfig'
 
+# REMEMBER TO CHANGE THIS TO URI
+engine_url = os.environ.get('DB_URL')
+engine = create_engine(engine_url)
+
 class DatabaseTests(unittest.TestCase):
     def create_app(self):
         return app
@@ -21,7 +25,7 @@ class DatabaseTests(unittest.TestCase):
         db.session.remove()
 
     def test_insertion(self):
-        conn = db.connect()
+        conn = engine.connect()
         insertion = Activity(
             date='20160704',
             steps=10000,
@@ -34,9 +38,12 @@ class DatabaseTests(unittest.TestCase):
             curr_health_score=60,
             health_score_in_week=65
         )
+        db.session.add(insertion)
+        db.commit()
         s = db.select()
         result = conn.execute(s)
-        print result
+        for row in result:
+            print row
         self.assertEqual(result, 200)
 
 if __name__ == '__main__':
