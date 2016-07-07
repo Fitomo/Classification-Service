@@ -1,28 +1,33 @@
 # Fitomo Prediction Service
 
-  Fitomo Prediction Service is a tool to forecast users' future "health scores", based on their current steps, sleep and heart rate data as well as previous trends.
+  Fitomo Prediction Service is a tool to forecast users' future health, based on their current steps, sleep and heart rate data as well as previous trends.
 
 ## Table of Contents
 1. [Usage](#Usage)
 2. [Getting started](#Getting-Started)
-  1. [Clone the latest version](#Installing-Dependencies)
-  2. [Install dependencies](#Installing-Dependencies)
-  3. [Run the application](#Run-Application)
+  1. [Clone the latest version](#Clone-Latest)
+  2. [Setup Environment](#Setup-Environment)
+  3. [Install dependencies](#Install-Dependencies)
+  4. [Run the application](#Run-Application)
 3. [Tech Stack](#Tech-Stack)
-4. [Team](#Team)
+4. [Directory Layout](#Directory-Layout)
 5. [Contributing](#Contributing)
 6. [License](#License)
 
 ## Usage
 
-  This service takes requests at '/api/getPrediction'; data to include is a dictionary with the following keys:
-    - steps
-    - total_sleep
-    - resting_hr
-    - step_week_slope
-    - sleep_week_slope
-    - hr_week_slope
-  The service will then output the predicted health score (calculated using a gradient boosting regression).
+  This service takes 'GET' requests at '/api/getPrediction'; data to include is a dictionary with the following keys:
+  ```sh
+    date
+    user_id
+    steps
+    total_sleep
+    resting_hr
+    step_week_slope
+    sleep_week_slope
+    hr_week_slope
+  ```
+  The service will then output the current health score and predicted health score (calculated using a gradient boosting regression). Incorrect requests will not return health scores.
 
 ## Getting started
 
@@ -35,32 +40,33 @@
   $ cd Prediction-Service
   ```
 
-#### 2. Install Dependencies
+#### 2. Setup Environment
+
+  1. Install virtualenv:
+
+  ```sh
+  $ pip install virtualenv
+  ```
+
+  2. Setup a virtual environment for the application:
+
+  ```sh
+  $ virtualenv venv
+  $ source venv/bin/activate
+  ```
+
+#### 3. Install Dependencies
   From within the root directory run the following command to install all dependencies:
 
   ```sh
   $ pip install -r requirements.txt
   ```
 
-#### 3. Setup Environment Variables
-
-  1. Run the following command in your terminal to refresh your bash profile:
-
-  ```sh
-  $ echo "source `which activate.sh`" >> ~/.bashrc
-  $ source ~/.bashrc
-  ```
-
-  2. Refresh your bash profile by leaving then entering the directory:
-
-  ```sh
-  $ cd ..
-  $ cd Prediction-Service
-  ```
-
 #### 4. Run the application
 
-  Run the following command in your terminal to run the app:
+  1. Start your local PostgreSQL database instance
+
+  2. Run the following command in your terminal to run the app:
 
   ```sh
   $ python app/app.py
